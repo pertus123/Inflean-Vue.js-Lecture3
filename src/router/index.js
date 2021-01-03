@@ -1,24 +1,49 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
+import NewsView from "../views/NewsView.vue";
+import JobsView from "../views/JobsView.vue";
+import AskView from "../views/AskView.vue";
+import userView from "../views/userView.vue";
+import itemView from "../views/itemView.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
-    name: "Home",
-    component: Home
+    redirect:"/news"
   },
   {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue")
-  }
+    path: "/news",
+    name: "news",
+    component: NewsView
+  },
+  {
+    path: "/jobs",
+    name: "jobs",
+    component: JobsView
+  },
+  {
+    path: "/ask",
+    name: "ask",
+    component: AskView
+  },
+  {
+    path: "/user",
+    name: "user",
+    component: userView
+  },
+  {
+    path: "/item",
+    name: "item",
+    component: itemView
+  },
+  // {
+  //   path: "/about",
+  //   name: "About",
+  //   component: () =>
+  //     import(/* webpackChunkName: "about" */ "../views/About.vue")
+  // }
 ];
 
 const router = new VueRouter({
